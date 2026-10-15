@@ -56,6 +56,43 @@
       <button onclick="openForm('seller')">Join as Seller</button>
     </section>
   </div>
+  
+<section class="form" id="customer">
+  <h2>📝 Customer Project Request</h2>
+  <p>Demo only — your information will not be saved or sent.</p>
+
+  <form onsubmit="preview(event, 'customer')">
+    <label>Project title</label>
+    <input type="text" placeholder="e.g. YouTube thumbnail" required>
+
+    <label>Service needed</label>
+    <select required>
+      <option value="">Choose a service</option>
+      <option>Graphic design</option>
+      <option>Video editing</option>
+      <option>Content creation</option>
+      <option>Other</option>
+    </select>
+
+    <label>Describe your project</label>
+    <textarea placeholder="Explain what you need..." required></textarea>
+
+    <label>Estimated budget (₹)</label>
+    <select required>
+      <option value="">Choose a budget</option>
+      <option>Under ₹500</option>
+      <option>₹500–₹1,000</option>
+      <option>₹1,000–₹3,000</option>
+      <option>₹3,000 or more</option>
+    </select>
+
+    <label>Preferred deadline</label>
+    <input type="date" required>
+
+    <button type="submit">Preview Project Request</button>
+  </form>
+</section>
+
 
   <section class="form" id="customer">
     <h2>Customer registration preview</h2>
@@ -75,26 +112,7 @@
     </form>
     <p id="customer-result"></p>
   </section>
-
-  <section class="form" id="seller">
-    <h2>Seller registration preview</h2>
-    <form onsubmit="preview(event, 'seller')">
-      <label>Display name</label>
-      <input required placeholder="Your creator name">
-      <label>Email (demo only)</label>
-      <input required type="email" placeholder="you@example.com">
-      <label>Main creative skill</label>
-      <select required>
-        <option value="">Choose your skill</option>
-        <option>Graphic design</option>
-        <option>Video editing</option>
-        <option>Content creation</option>
-      </select>
-      <button>Preview registration</button>
-    </form>
-    <p id="seller-result"></p>
-  </section>
-
+  
   <p class="note"><strong>Demo only:</strong> This page does not create accounts
     or save information. Use sample details only. Real registration needs
     secure authentication and a database.</p>
