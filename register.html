@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Let's Role</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 24px 16px;
+      font-family: Arial, sans-serif;
+      background: #f6f4ff; color: #20213a;
+    }
+    main { max-width: 700px; margin: auto; }
+    h1 { color: #6c3ce9; text-align: center; }
+    .intro { text-align: center; line-height: 1.6; }
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    section {
+      background: white; border: 1px solid #e7e3f4;
+      border-radius: 16px; padding: 20px;
+    }
+    button {
+      background: #6c3ce9; color: white; border: 0;
+      border-radius: 9px; padding: 12px; width: 100%;
+      font-weight: bold; margin-top: 10px;
+    }
+    label { display: block; margin-top: 12px; font-weight: bold; }
+    input, select {
+      width: 100%; padding: 11px; margin-top: 6px;
+      border: 1px solid #ccc; border-radius: 8px;
+    }
+    .form { display: none; margin-top: 18px; }
+    .form.show { display: block; }
+    .note { background: #fff1c9; padding: 12px; border-radius: 8px; line-height: 1.5; }
+    @media (max-width: 550px) {
+      .cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Join Let's Role 🎨</h1>
+  <p class="intro">Connect customers with graphic designers,
+    video editors and content creators.</p>
+
+  <div class="cards">
+    <section>
+      <h2>🧑‍💼 Customer</h2>
+      <p>Find creative help for your project.</p>
+      <button onclick="openForm('customer')">Join as Customer</button>
+    </section>
+    <section>
+      <h2>🎨 Seller</h2>
+      <p>Discover creative project opportunities.</p>
+      <button onclick="openForm('seller')">Join as Seller</button>
+    </section>
+  </div>
+
+  <section class="form" id="customer">
+    <h2>Customer registration preview</h2>
+    <form onsubmit="preview(event, 'customer')">
+      <label>Display name</label>
+      <input required placeholder="Your display name">
+      <label>Email (demo only)</label>
+      <input required type="email" placeholder="you@example.com">
+      <label>Service needed</label>
+      <select required>
+        <option value="">Choose a service</option>
+        <option>Graphic design</option>
+        <option>Video editing</option>
+        <option>Content creation</option>
+      </select>
+      <button>Preview registration</button>
+    </form>
+    <p id="customer-result"></p>
+  </section>
+
+  <section class="form" id="seller">
+    <h2>Seller registration preview</h2>
+    <form onsubmit="preview(event, 'seller')">
+      <label>Display name</label>
+      <input required placeholder="Your creator name">
+      <label>Email (demo only)</label>
+      <input required type="email" placeholder="you@example.com">
+      <label>Main creative skill</label>
+      <select required>
+        <option value="">Choose your skill</option>
+        <option>Graphic design</option>
+        <option>Video editing</option>
+        <option>Content creation</option>
+      </select>
+      <button>Preview registration</button>
+    </form>
+    <p id="seller-result"></p>
+  </section>
+
+  <p class="note"><strong>Demo only:</strong> This page does not create accounts
+    or save information. Use sample details only. Real registration needs
+    secure authentication and a database.</p>
+  <p><a href="./index.html">← Back to Let's Role homepage</a></p>
+</main>
+<script>
+  function openForm(id) {
+    document.querySelectorAll('.form').forEach(f => f.classList.remove('show'));
+    document.getElementById(id).classList.add('show');
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+  function preview(event, role) {
+    event.preventDefault();
+    document.getElementById(role + '-result').textContent =
+      'Preview complete! No account was created and no data was saved.';
+  }
+</script>
+</body>
+</html>
