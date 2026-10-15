@@ -111,6 +111,21 @@
     document.getElementById(role + '-result').textContent =
       'Preview complete! No account was created and no data was saved.';
   }
+  function openForm(type) {
+  document.querySelectorAll('.form').forEach(function(form) {
+    form.classList.remove('show');
+  });
+
+  const selectedForm = document.getElementById(type);
+
+  if (selectedForm) {
+    selectedForm.classList.add('show');
+    selectedForm.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+  }
 </script>
 </body>
 </html>
